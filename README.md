@@ -174,20 +174,6 @@ Full specification, rationale, and rules for adding fields: [`docs/DATA_CONTRACT
 
 ---
 
-## 📅 Milestones
-
-| Date | Milestone | Owner |
-|------|-----------|-------|
-| Apr 17 | Repo skeleton committed, every member has read their `TASKS_*.md` | all |
-| Apr 19 | Phase 0 pipeline end-to-end dry run (no attacks, no defences) | LKK + LYZ + YYX |
-| Apr 20 | Attack 1 + Attack 2 reproducible | LKK + YYX |
-| Apr 21 | Defences integrated; logs + screenshots captured | ZYM + LYZ |
-| Apr 22 | Experiments + figures generated | ZYM + LKK |
-| Apr 23 | Report drafts complete, video recorded | all |
-| Apr 24 | Individual contribution statements, final PDF + video link | all |
-
----
-
 ## 📨 Submission checklist (ELEC0138 rubric)
 
 - [ ] 10-page PDF report, combined CW1 + CW2, using the Moodle template
