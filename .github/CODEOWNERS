@@ -1,0 +1,27 @@
+# CODEOWNERS — git blame by directory
+# Format: <path-pattern> @github-username
+# Replace the placeholder handles before the first push.
+
+# --- Shared docs require any member to review ---
+/docs/                          @lkk-handle @lyz-handle @yyx-handle @zym-handle
+/README.md                      @lkk-handle @lyz-handle @yyx-handle @zym-handle
+/requirements.txt               @lkk-handle @lyz-handle @yyx-handle @zym-handle
+
+# --- LKK ---
+/data/                          @lkk-handle
+/edge/wearable.py               @lkk-handle
+/edge/TASKS_LKK.md              @lkk-handle
+/attack/attack1_ble.py          @lkk-handle
+/attack/TASKS_LKK.md            @lkk-handle
+
+# --- LYZ ---
+/edge/gateway.py                @lyz-handle
+/edge/TASKS_LYZ.md              @lyz-handle
+
+# --- YYX ---
+/cloud/                         @yyx-handle
+/attack/attack2_nosql.py        @yyx-handle
+/attack/TASKS_YYX.md            @yyx-handle
+
+# --- ZYM ---
+/zym_defense/                   @zym-handle
