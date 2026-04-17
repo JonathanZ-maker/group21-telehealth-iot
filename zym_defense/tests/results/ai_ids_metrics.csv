@@ -1,0 +1,11 @@
+metric,value
+auc,1.0000
+precision,0.9921
+recall,1.0000
+f1,0.9960
+threshold,0.0183
+fpr,0.0080
+recall_spike,1.0000
+recall_drop,1.0000
+recall_dead-stick,1.0000
+recall_drift,1.0000
