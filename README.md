@@ -164,14 +164,13 @@ Full specification, rationale, and rules for adding fields: [`docs/DATA_CONTRACT
 
 ---
 
-## 🚦 Git workflow & commit rules
+## 🚦 Branching & commit rules (please respect these — IPAC evidence)
 
-- Work directly on `main` — everyone pushes to the same branch.
-- Before every edit: `git pull origin main`. Before every push: `git pull origin main` again.
-- Each person edits only their own directory (see the ownership table above). If you need to touch someone else's file, tell the group chat first.
-- Prefix every commit message with your initials so the log reads clearly: `lkk:`, `lyz:`, `yyx:`, `zym:`.
-- Commit from your real GitHub account (linked to your UCL email). The commit `author` field is the record of individual contribution for IPAC.
-- Full step-by-step instructions are in [`GETTING_STARTED.md`](GETTING_STARTED.md).
+- `main` is protected. **Never push to main directly.**
+- Each person works on a feature branch: `feat/lkk`, `feat/lyz`, `feat/yyx`, `feat/zym`, etc.
+- Open a pull request into `main` when your module is self-contained and tested. Tag at least one teammate to review.
+- Commit from your real GitHub account (the one linked to your UCL email). Git blame is **the** evidence of individual contribution for IPAC.
+- Do not edit files outside your own directory without asking the owner.
 
 ---
 
