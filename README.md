@@ -167,11 +167,7 @@ Full specification, rationale, and rules for adding fields: [`docs/DATA_CONTRACT
 ## 🚦 Branching & commit rules (please respect these — IPAC evidence)
 
 - `main` is protected. **Never push to main directly.**
-<<<<<<< Updated upstream
 - Each person works on a feature branch: `feat/lkk`, `feat/lyz`, `feat/yyx`, `feat/zym`, etc.
-=======
-- Each person works on a feature branch: `feat/lkk-wearable`, `feat/lyz-hmac`, `feat/yyx-nosql-attack`, `feat/zym-pydantic`, etc.
->>>>>>> Stashed changes
 - Open a pull request into `main` when your module is self-contained and tested. Tag at least one teammate to review.
 - Commit from your real GitHub account (the one linked to your UCL email). Git blame is **the** evidence of individual contribution for IPAC.
 - Do not edit files outside your own directory without asking the owner.
