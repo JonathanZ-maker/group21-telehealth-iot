@@ -1,0 +1,6 @@
+module,mean_ms,std_ms
+DP (privatise),0.0015,0.0010
+AI-IDS (inspect),0.1170,0.4903
+Pydantic (allow),0.0019,0.0325
+Pydantic (block),0.0016,0.0054
+JWT (verify),0.0212,0.0093

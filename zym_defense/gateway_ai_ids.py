@@ -163,6 +163,9 @@ class AIIDS:
     # Hard physiological guard — "hybrid detector" fast path
     HARD_LO: float = 30.0
     HARD_HI: float = 220.0
+    # Dead-stick rule: N consecutive identical readings (to 0.1 BPM)
+    # are physiologically implausible for a live subject.
+    DEAD_STICK_MIN_RUN: int = 5
     # Threshold calibration: use a quantile *tighter* than contamination
     # to trade a slight recall loss for a much lower false-positive rate
     # on healthy streams. 0.995 → ~0.5 % training FPR target.
@@ -216,15 +219,16 @@ class AIIDS:
         Decision order (hybrid detector):
           1. Fast-path rule — physiological hard bounds → instant block.
           2. Window warm-up (< WINDOW samples) → fail-open.
-          3. Isolation-Forest score vs. trained threshold → block or pass.
+          3. Fast-path rule — dead-stick detection (the latest N samples
+             are all identical to 0.1 BPM precision) → instant block.
+             Physiologically impossible for a live subject; cheaper and
+             more reliable than asking the Isolation Forest to learn it.
+          4. Isolation-Forest score vs. trained threshold → block or pass.
 
-        Returns (is_anomalous, score). For rule-path blocks score = +inf,
-        which is visually distinct in logs and plots.
+        Returns (is_anomalous, score). Rule-path blocks use score = +inf,
+        visually distinct in logs and plots.
         """
-        # (1) Fast-path hard rule — standard "hybrid detector" pattern:
-        # deterministic guard for trivially impossible values sits in
-        # front of the ML so the model never sees adversarial inputs
-        # outside its training distribution.
+        # (1) Fast-path hard rule — physiological bounds
         if not (self.HARD_LO <= heart_rate <= self.HARD_HI):
             logger.warning(
                 "ALERT  device=%s  hr=%.2f  reason=hard_bound  "
@@ -239,7 +243,24 @@ class AIIDS:
         if len(buf) < WINDOW:
             return False, 0.0
 
-        # (3) Model path
+        # (3) Fast-path hard rule — dead-stick detection
+        # Count how many trailing samples equal the latest one to 0.1 BPM.
+        rounded = [round(v, 1) for v in buf]
+        flat_run = 1
+        for i in range(len(rounded) - 2, -1, -1):
+            if rounded[i] == rounded[-1]:
+                flat_run += 1
+            else:
+                break
+        if flat_run >= self.DEAD_STICK_MIN_RUN:
+            logger.warning(
+                "ALERT  device=%s  hr=%.2f  reason=dead_stick  "
+                "flat_run=%d  threshold=%d",
+                device_id, heart_rate, flat_run, self.DEAD_STICK_MIN_RUN,
+            )
+            return True, float("inf")
+
+        # (4) Model path
         score = self.score_window(np.asarray(buf, dtype=np.float32))
         decision = score > self.threshold
         if decision:
