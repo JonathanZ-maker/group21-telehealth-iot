@@ -8,12 +8,11 @@ Put the **unmodified** downloaded dataset here (e.g. the Kaggle CSV).
 
 LKK to fill in once the dataset is chosen:
 
-- **Name:** <e.g. PPG-DaLiA — PPG-based Heart-Rate Dataset>
-- **URL:** <https://...>
-- **Access date:** <YYYY-MM-DD>
-- **Licence:** <CC-BY-4.0 / MIT / ...>
-- **Citation:** <BibTeX or plain text>
-- **Description:** n subjects, sampling rate, total records, any known limitations
+- **Name:** Heart rate time series
+- **URL:** https://www.kaggle.com/datasets/ahmadsaeed1007/heart-rate-time-series-mitbih-database
+- **Access date:** 2026-4-19
+- **Licence:** MIT
+- **Description:** 4 series contains 1800 evenly-spaced measurements of instantaneous heart rate from a single subject
 
 ## Reproducibility note
 
