@@ -31,7 +31,7 @@ def main() -> None:
     cleaned_file_path = PROC_DIR / "heart_rate_cleaned.csv"
     stats_file_path = PROC_DIR / "stats.txt"
     
-    print(f"📂 Found raw file: {raw_file_path.name}, starting processing...")
+    print(f"Found raw file: {raw_file_path.name}, starting processing...")
 
     try:
         # --- 1. Load original wide-format data ---
