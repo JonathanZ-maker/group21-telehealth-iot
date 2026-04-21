@@ -30,6 +30,8 @@ These figures and numbers go directly into CW2 §4 "Experimental results".
 """
 
 from __future__ import annotations
+from zym_defense.gateway_ai_ids import AIIDS
+import numpy as np
 
 import os
 import sys
@@ -256,7 +258,12 @@ def main() -> None:
     print("=" * 60)
     print(f"\nFigures  → {FIG_DIR}/ai_ids_roc.png  and  ai_ids_confusion.png")
     print(f"Metrics  → {csv_path}")
-
+    
+    rng = np.random.default_rng(2024)
+    t = np.linspace(0, 12 * np.pi, 6000)
+    healthy = np.clip(72 + 4*np.sin(t) + rng.normal(0, 2.5, 6000), 50, 110)
+    ids = AIIDS(contamination=0.01, random_state=0).fit(healthy)
+    ids.save("zym_defense/models/iforest.pkl")
 
 if __name__ == "__main__":
     main()
