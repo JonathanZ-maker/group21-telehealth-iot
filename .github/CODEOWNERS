@@ -3,16 +3,16 @@
 # Replace the placeholder handles before the first push.
 
 # --- Shared docs require any member to review ---
-/docs/                          @lkk-handle @lyz-handle @yyx-handle @zym-handle
-/README.md                      @lkk-handle @lyz-handle @yyx-handle @zym-handle
-/requirements.txt               @lkk-handle @lyz-handle @yyx-handle @zym-handle
+/docs/                          @G9aster @lyz-handle @yyx-handle @zym-handle
+/README.md                      @G9aster @lyz-handle @yyx-handle @zym-handle
+/requirements.txt               @G9aster @lyz-handle @yyx-handle @zym-handle
 
 # --- LKK ---
-/data/                          @lkk-handle
-/edge/wearable.py               @lkk-handle
-/edge/TASKS_LKK.md              @lkk-handle
-/attack/attack1_ble.py          @lkk-handle
-/attack/TASKS_LKK.md            @lkk-handle
+/data/                          @G9aster
+/edge/wearable.py               @G9aster
+/edge/TASKS_LKK.md              @G9aster
+/attack/attack1_ble.py          @G9aster
+/attack/TASKS_LKK.md            @G9aster
 
 # --- LYZ ---
 /edge/gateway.py                @lyz-handle
