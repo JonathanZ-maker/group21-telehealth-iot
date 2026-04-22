@@ -98,7 +98,7 @@ def main():
                 # Build payload, ensure correct type conversion (CSV reads as strings)
                 payload = {
                     "patient_id": row["patient_id"],
-                    "timestamp": int(row["timestamp"]),
+                    "timestamp": int(time.time()),
                     "heart_rate": float(row["heart_rate"])
                 }
 
