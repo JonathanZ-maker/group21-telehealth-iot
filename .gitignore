@@ -34,11 +34,7 @@ Thumbs.db
 # ---- Jupyter ----
 .ipynb_checkpoints/
 
-# ---- Data ----
-# Raw datasets are too large for git; fetch them via scripts/fetch_data.sh
-data/raw/*
-!data/raw/.gitkeep
-!data/raw/README.md
+
 
 # Keep processed smaller derivatives
 # data/processed/  — tracked by default, comment the next line to exclude large files
